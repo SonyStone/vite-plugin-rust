@@ -10,13 +10,8 @@ use web_sys::console;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
 pub fn greet() {
-    alert("Hello, vite!");
+    console::log_1(&JsValue::from_str("⁉ alert(\"Hello, vite!\")"));
 }
 
 // This is like the `main` function, except for JavaScript.
@@ -28,7 +23,7 @@ pub fn main_js() -> Result<(), JsValue> {
     console_error_panic_hook::set_once();
 
     // Your code goes here!
-    console::log_1(&JsValue::from_str("⁉ Hello world"));
+    console::log_1(&JsValue::from_str("⁉ Hello world 🎉"));
 
     Ok(())
 }
